@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_vb_project_vb_project,vb_project.vb_project,model_vb_project_vb_project,,1,0,0,0
