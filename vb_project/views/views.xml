@@ -6,7 +6,7 @@
     <field name="inherit_id" ref="sale.view_order_form"/>
     <field name="arch" type="xml">
       <xpath expr="//field[@name='payment_term_id']" position="after">
-        <!-- <field name="project_name"/> -->
+        <field name="project_id"/>
       </xpath> 
     </field>
     </record>
@@ -17,7 +17,7 @@
     <field name="inherit_id" ref="account.invoice_form"/>
     <field name="arch" type="xml">
       <xpath expr="//field[@name='payment_term_id']" position="after">
-        <field name="project_name"/>
+        <field name="project_id"/>
       </xpath>
     </field>
     </record>
