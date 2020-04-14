@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+    	<record id="view_profit_loss_tree" model="ir.ui.view">
+    	    <field name="name">Project tree view</field>
+    	    <field name="model">project.project</field>
+    	    <field name="priority" eval="1"/>
+    	    <field name="arch" type="xml">
+    	        <tree>
+    	            <field name='name'/>
+    	        </tree>
+    	    </field>
+    	</record>
+
+    	<record id="view_profit_loss_form" model="ir.ui.view">
+    	    <field name="name">Project form view</field>
+    	    <field name="model">project.project</field>
+    	    <field name="priority" eval="1"/>
+    	    <field name="arch" type="xml">
+    	        <form>
+                    <sheet>
+                        <group>                            
+                            <field name="name"/>
+                            <field name="invoice_ids" />                                                           
+                     	</group>
+                        <!-- <notebook>
+                            <page string="Invoice">
+                                <field name="invoice_ids" >
+                                    <tree limit="5" delete='false'>
+                                       <field name="payment_term_id"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook> -->
+                    </sheet>
+    	        </form>
+    	    </field>
+    	</record>
+
+        <record id="action_profit_loss" model="ir.actions.act_window">
+    	    <field name="name">Profit and Loss</field>
+    	    <field name="res_model">project.project</field>
+    	    <field name="view_mode">tree,form</field>
+    	    <field name="limit">25</field>
+    	</record>
+    	<record id="action_profit_loss_tree_link" model="ir.actions.act_window.view">
+    	    <field eval="1" name="sequence"/> 
+    	    <field name="act_window_id" ref="action_profit_loss"/>
+    	    <field name="view_id" ref="view_profit_loss_tree"/>
+    	    <field name="view_mode">tree</field>
+    	</record>
+    	<record id="action_profit_loss_form_link" model="ir.actions.act_window.view">
+    	    <field eval="2" name="sequence"/> 
+    	    <field name="act_window_id" ref="action_profit_loss"/>
+    	    <field name="view_id" ref="view_profit_loss_form"/>
+    	    <field name="view_mode">form</field>
+    	</record>
+
+        <menuitem id="menu_project_report_profit_loss" parent="project.menu_project_report" sequence="12"
+            name="Profit and Loss" action="action_profit_loss"/>
+    </data>
+</odoo>

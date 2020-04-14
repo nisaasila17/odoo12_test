@@ -1,25 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
 <odoo>
   <data>
+
+    <record id="custom_sale_order_tree" model="ir.ui.view">
+        <field name="name">Sale ordert - Extend tree view</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_quotation_tree_with_onboarding"/>
+        <field name="arch" type="xml">
+            <field name="partner_id" position="after">
+                <field name="project_id" string="Project Name"/>
+            </field>
+        </field>
+    </record>
+
     <record id='custom_sale_order_view' model='ir.ui.view'>
-    <field name="name">custom.sale.order.view</field>
-    <field name="model">sale.order</field>
-    <field name="inherit_id" ref="sale.view_order_form"/>
-    <field name="arch" type="xml">
-      <xpath expr="//field[@name='payment_term_id']" position="after">
-        <field name="project_id"/>
-      </xpath> 
-    </field>
+      <field name="name">custom.sale.order.view</field>
+      <field name="model">sale.order</field>
+      <field name="inherit_id" ref="sale.view_order_form"/>
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='payment_term_id']" position="after">
+          <field name="project_id"/>
+        </xpath> 
+      </field>
+    </record>
+
+    <record id="custom_account_invoice_tree" model="ir.ui.view">
+      <field name="name">Account Invoice - Extend tree view</field>
+      <field name="model">account.invoice</field>
+      <field name="inherit_id" ref="account.invoice_tree_with_onboarding"/>
+      <field name="arch" type="xml">
+          <field name="origin" position="after">
+              <field name="project_id" string="Project Name"/>
+          </field>
+      </field>
     </record>
 
     <record id='custom_account_invoice_view' model='ir.ui.view'>
-    <field name="name">custom.account.invoice.view</field>
-    <field name="model">account.invoice</field>
-    <field name="inherit_id" ref="account.invoice_form"/>
-    <field name="arch" type="xml">
-      <xpath expr="//field[@name='payment_term_id']" position="after">
-        <field name="project_id"/>
-      </xpath>
-    </field>
+      <field name="name">custom.account.invoice.view</field>
+      <field name="model">account.invoice</field>
+      <field name="inherit_id" ref="account.invoice_form"/>
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='payment_term_id']" position="after">
+          <field name="project_id"/>
+        </xpath>
+      </field>
     </record>
+
+
+
   </data>
 </odoo>
